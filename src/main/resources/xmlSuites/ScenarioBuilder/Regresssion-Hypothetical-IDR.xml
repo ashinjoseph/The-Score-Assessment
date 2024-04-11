@@ -1,0 +1,80 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Regression" parallel="false" thread-count="4" configfailurepolicy="continue" preserve-order="true"
+       verbose="1">
+    <listeners>
+        <listener class-name="com.morningstar.aws.project.setup.Setup"/>
+    </listeners>
+    <parameter name="environment" value="uat"/>
+    <parameter name="testrun-id" value="296780"/>
+    <parameter name="login-type" value="standard-login"/>
+    <parameter name="login-id" value="QAInstid_2"/>
+    <test name="MF-IDRs_Brokerage">
+        <parameter name="testrun-id" value="240421"/>
+        <parameter name="testcase-id" value="6241061"/>
+        <parameter name="retry-count" value="0"/>
+        <classes>
+<!--            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.brokerage.idr.BrokerageService_Workflow_IDR_MF"/>-->
+            <!--<class name="com.morningstar.aws.project.tests.scenariobuilder.quickscenariobuilder.idr.BrokerageWorkflow_IDR_MF"/>-->
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.scenarioreportbuilder.brokerage.idr.BrokerageWorkflow_IDR_MF"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.portfoliobuilder.brokerage.idr.BrokerageService_Workflow_IDR_MF"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.portfolioreportbuilder.brokerage.idr.BrokerageWorkflow_IDR_MF"/>
+        </classes>
+    </test>
+    <test name="CE-IDRs_Brokerage">
+        <parameter name="testrun-id" value="240421"/>
+        <parameter name="testcase-id" value="6288253"/>
+        <parameter name="retry-count" value="0"/>
+        <classes>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.brokerage.idr.BrokerageService_Workflow_IDR_CE"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.quickscenariobuilder.idr.BrokerageWorkflow_IDR_CE"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.scenarioreportbuilder.brokerage.idr.BrokerageWorkflow_IDR_CE"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.portfoliobuilder.brokerage.idr.BrokerageService_Workflow_IDR_CE"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.portfolioreportbuilder.brokerage.idr.BrokerageWorkflow_IDR_CE"/>
+        </classes>
+    </test>
+    <test name="CE-IDRs_Advisory">
+        <parameter name="testcase-id" value="6288253"/>
+        <classes>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.hypothetical.idr.AdvisoryService_HypotheticalWorkflow_IDR_CE"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.hypothetical.idr.AdvisoryService_HypotheticalWorkflow_IDR_CE_MaxSchedule"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.scenarioreportbuilder.hypothetical.idr.AdvisoryService_HypotheticalWorkflow_IDR_CE"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.portfoliobuilder.advisory.idr.AdvisoryService_IDR_CE"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.portfoliobuilder.advisory.idr.AdvisoryService_IDR_CE_MaxSchedule"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.portfolioreportbuilder.advisory.idr.AdvisoryWorkflow_IDR_CE"/>
+        </classes>
+    </test>
+    <test name="MF-IDRs_Advisory">
+        <parameter name="testcase-id" value="6241061"/>
+        <classes>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.hypothetical.idr.AdvisoryService_HypotheticalWorkflow_IDR_MF"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.hypothetical.idr.AdvisoryService_HypotheticalWorkflow_IDR_MF_MaxSchedule"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.scenarioreportbuilder.hypothetical.idr.AdvisoryService_HypotheticalWorkflow_IDR_MF"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.portfoliobuilder.advisory.idr.AdvisoryService_IDR_MF"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.portfoliobuilder.advisory.idr.AdvisoryService_IDR_MF_MaxSchedule"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.portfolioreportbuilder.advisory.idr.AdvisoryWorkflow_IDR_MF"/>
+        </classes>
+    </test>
+    <test name="IDRs">
+        <classes>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.hypothetical.idr.AdvisoryService_HypotheticalWorkflow_IDR_SMA"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.hypothetical.idr.AdvisoryService_HypotheticalWorkflow_IDR_CIT"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.hypothetical.idr.AdvisoryService_HypotheticalWorkflow_IDR_UIT"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.hypothetical.idr.AdvisoryService_HypotheticalWorkflow_IDR_MO"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.hypothetical.idr.AdvisoryService_HypotheticalWorkflow_IDR_VL"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.hypothetical.idr.AdvisoryService_HypotheticalWorkflow_IDR_IDX"/>
+        </classes>
+    </test>
+    <test name="StaticContent-IDRs_Brokerage">
+        <parameter name="testcase-id" value="7132708"/>
+        <classes>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.brokerage.idr.BrokerageService_HypotheticalWorkflow_StaticContentValidation_IDR"/>
+        </classes>
+    </test>
+    <test name="StaticContent-IDRs_Advisory">
+        <parameter name="testcase-id" value="7132709"/>
+        <classes>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.hypothetical.idr.AdvisoryService_HypoWorkflow_StaticContentValidation_MaxSchedule_IDR"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.hypothetical.idr.AdvisoryService_HypotheticalWorkflow_StaticContentValidation_IDR"/>
+        </classes>
+    </test>
+</suite>

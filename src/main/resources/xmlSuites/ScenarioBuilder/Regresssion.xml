@@ -1,0 +1,31 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Regression" parallel="false" thread-count="4" configfailurepolicy="continue" preserve-order="true"
+       verbose="1">
+
+    <listeners>
+        <listener class-name="com.morningstar.aws.project.setup.Setup"/>
+    </listeners>
+    <parameter name="environment" value="uat"/>
+    <parameter name="testrun-id" value="270113"/>
+    <parameter name="login-type" value="standard-login"/>
+    <parameter name="login-id" value="QAInstid_2"/>
+    <test name="Reports">
+        <classes>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.AdvisoryService_AllFeeSchedule"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.AdvisoryService_FeeSchedule_ReportPage"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.AllMaxFee"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.AllMaxFee_WithDiscount"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.ArchiveReports"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.FlatFee_Frequency"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.SaveScenarioFile"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.VerifyWorkflow"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.interactiveanalysis.AdvisoryService_InteractiveAnalysisUIWorkflow"/>
+        </classes>
+    </test>
+    <test name="Actual_Reports">
+        <classes>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.actualtool.Verify_NonPerformanceDataPoints_SnapshotReport"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.actualtool.BFEProgramInvestmentsSelection"/>
+        </classes>
+    </test>
+</suite>

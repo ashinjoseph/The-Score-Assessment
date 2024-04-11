@@ -1,0 +1,60 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Regression:Fee_Alerts-IDR" parallel="false" thread-count="4" configfailurepolicy="continue"
+       preserve-order="true"
+       verbose="1">
+
+    <listeners>
+        <listener class-name="com.morningstar.aws.project.setup.Setup"/>
+    </listeners>
+    <parameter name="environment" value="qa"/>
+    <parameter name="testrun-id" value="301620"/>
+    <parameter name="login-type" value="standard-login"/>
+
+    <test name="Security_SMA-On:DataValidation">
+        <parameter name="login-id" value="QAInstid_2"/>
+        <parameter name="testcase-id" value="6308363"/>
+        <parameter name="re-login" value="false"/>
+        <classes>
+            <class name="com.morningstar.aws.project.tests.portfolio.securityreports.brokerage.idr.BrokerageService_DataValidation_IDR_CE"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.securityreports.brokerage.idr.BrokerageService_DataValidation_IDR_MF"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.securityreports.brokerage.idr.BrokerageService_DataValidation_IDR_MO"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.securityreports.brokerage.idr.BrokerageService_DataValidation_IDR_SMA"/>
+        </classes>
+    </test>
+
+    <test name="Security-On_SMA-Off:DataValidation">
+        <parameter name="login-id" value="QAInstid_3"/>
+        <parameter name="testcase-id" value="6315655"/>
+        <parameter name="re-login" value="false"/>
+        <classes>
+            <class name="com.morningstar.aws.project.tests.portfolio.securityreports.brokerage.idr.BrokerageService_DataValidation_IDR_CE"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.securityreports.brokerage.idr.BrokerageService_DataValidation_IDR_MF"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.securityreports.brokerage.idr.BrokerageService_DataValidation_IDR_MO"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.securityreports.brokerage.idr.BrokerageService_DataValidation_IDR_SMA"/>
+        </classes>
+    </test>
+
+    <test name="Security-Off_SMA-On:DataValidation">
+        <parameter name="login-id" value="QAInstid_4"/>
+        <parameter name="testcase-id" value="6813388"/>
+        <parameter name="re-login" value="false"/>
+        <classes>
+            <class name="com.morningstar.aws.project.tests.portfolio.securityreports.brokerage.idr.BrokerageService_DataValidation_IDR_CE"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.securityreports.brokerage.idr.BrokerageService_DataValidation_IDR_MF"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.securityreports.brokerage.idr.BrokerageService_DataValidation_IDR_MO"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.securityreports.brokerage.idr.BrokerageService_DataValidation_IDR_SMA"/>
+        </classes>
+    </test>
+
+    <test name="Security-Off_SMA-Off:DataValidation">
+        <parameter name="login-id" value="QAInstid_5"/>
+        <parameter name="testcase-id" value="6813387"/>
+        <parameter name="re-login" value="false"/>
+        <classes>
+            <class name="com.morningstar.aws.project.tests.portfolio.securityreports.brokerage.idr.BrokerageService_DataValidation_IDR_CE"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.securityreports.brokerage.idr.BrokerageService_DataValidation_IDR_MF"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.securityreports.brokerage.idr.BrokerageService_DataValidation_IDR_MO"/>
+            <class name="com.morningstar.aws.project.tests.portfolio.securityreports.brokerage.idr.BrokerageService_DataValidation_IDR_SMA"/>
+        </classes>
+    </test>
+</suite>

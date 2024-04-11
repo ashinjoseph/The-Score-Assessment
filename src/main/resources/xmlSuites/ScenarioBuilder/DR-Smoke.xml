@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="false" thread-count="4" configfailurepolicy="continue" preserve-order="true">
+    <listeners>
+        <listener class-name="com.morningstar.aws.project.setup.Setup"/>
+    </listeners>
+    <parameter name="browser" value="chrome"/>
+    <parameter name="environment" value="live"/>
+    <test name="Smoke">
+        <parameter name="login-type" value="standard-login"/>
+        <parameter name="login-id" value="QAInstid_2"/>
+        <parameter name="testrun-id" value="250046"/>
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.brokerage"/>
+        </packages>
+    </test>
+</suite>

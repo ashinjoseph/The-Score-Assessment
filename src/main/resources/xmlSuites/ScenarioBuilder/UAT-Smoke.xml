@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="false" thread-count="4" configfailurepolicy="continue" preserve-order="true">
+    <listeners>
+        <listener class-name="com.morningstar.aws.project.setup.Setup"/>
+    </listeners>
+    <parameter name="browser" value="chrome"/>
+    <parameter name="environment" value="uat"/>
+    <parameter name="login-type" value="standard-login"/>
+    <parameter name="login-id" value="QAInstid_2"/>
+    <parameter name="testrun-id" value="319842"/>
+
+    <test name="Smoke">
+        <classes>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.VerifyWorkflow"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.SaveScenarioFile"/>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.interactiveanalysis.AdvisoryService_InteractiveAnalysisUIWorkflow"/>
+        </classes>
+    </test>
+    <test name="Smoke-Relogin">
+        <parameter name="re-login" value="true"/>
+        <classes>
+            <class name="com.morningstar.aws.project.tests.scenariobuilder.standardscenariobuilder.ArchiveReports"/>
+        </classes>
+    </test>
+</suite>
