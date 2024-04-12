@@ -14,24 +14,38 @@ public class BasePage {
 
     public BasePage(AndroidDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, 10); // You can adjust the wait time as needed
+        wait = new WebDriverWait(driver, 10);
     }
 
-    // Click method with page transition
     public void clickAndTransition(By locator) {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
         element.click();
-        waitForPageLoad(); // Wait for the new page to load
+        waitForPageLoad();
     }
 
-    // Method to wait for page load
+
     private void waitForPageLoad() {
         try {
-            // Wait for any element on the new page to become visible
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*")));
         } catch (NoSuchElementException e) {
-            // Handle case where no element is found on the new page
+            // Todo:logger
             System.out.println("No element found on the new page.");
         }
+    }
+    public WebElement waitForElementToBeClickable(By locator) {
+        return wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+    public boolean isElementWithTextDisplayed(WebElement element, String expectedText) {
+        if (!element.isDisplayed()) {
+            return false;
+        }
+        String actualText = element.getText();
+
+        return actualText.contains(expectedText);
+    }
+    public boolean navigateBack(WebElement isElementDisplayed) {
+        driver.navigate().back();
+        return isElementDisplayed.isDisplayed();
     }
 }
