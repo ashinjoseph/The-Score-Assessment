@@ -8,7 +8,6 @@ import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
-import org.the.score.common.actions.CommonActions;
 import org.the.score.common.utils.FilesUtility;
 import java.io.File;
 import java.net.MalformedURLException;
@@ -24,12 +23,9 @@ public class BaseTest {
     protected String Execution_Environment;
 
     protected AndroidDriver driver;
-    protected CommonActions actions;
-
 
     public BaseTest(AndroidDriver driver) {
         this.driver = driver;
-        this.actions = new CommonActions(driver);
     }
     @BeforeSuite(alwaysRun = true)
     public void beforeSuite(ITestContext context) {
